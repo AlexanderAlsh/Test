@@ -1,34 +1,30 @@
-print(""" Здравствуйте.
-Для получения посылки необходимы ваши контактные данные.
-Пожалуйста, заполните форму ниже:""")
+print("Для получения заказа, пожалуйста, введите ваши данные: ")
 while True:
-    first_name = input("Ведите вашу фамилию: ")
-    if first_name == "":
-        print("Вы не ввели фамилию")
-        continue
+    first_name = input("Введите вашу фамилию: ")
+    while first_name == "":
+        print("Вы не ввели вашу фамилию")
+        first_name = input("Введите вашу фамилию: ")
+    last_name = input("Введите ваш имя: ")
+    while last_name == "":
+        print("Вы не ввели ваше имя")
+        last_name = input("Введите ваш имя: ")
+    father_name = input("Введите ваш отчество: ")
+    while father_name == "":
+        print("Вы не ввели ваше отчество")
+        father_name = input("Введите ваш отчество: ")
+    adress = input("Введите ваш адрес: ")
+    while adress == "":
+        print("Вы не ввели ваш адрес")
+        adress = input("Введите ваш отчество: ")
+    full_name = f'{first_name} {last_name} {father_name}'
+    print(f"""
+        Заказ будет доставлен на адрес: {adress.title()}
+        Получатель: {full_name.title()}""")
+    ready = input("""
+        Если все данные введены верны, то Y.
+        Если заметили ошибку и необходимо ввести данные заново, то любую клавишу: """)
+    if ready.title() == 'Y' or 'Н':
+        break
     else:
-        while True:
-            second_name = input("Ведите ваше имя: ")
-            if second_name == "":
-                print("Вы не ввели имя")
-                continue
-            else:
-                while True:
-                    father_name = input("Ведите ваше отчество: ")
-                    if father_name == "":
-                        print("Вы не ввели отчество")
-                        continue
-                    else:
-                        while True:
-                            full_name = f"{first_name} {second_name} {father_name}"
-                            adress = input('Введите ваш адресс: ')
-                            if adress != "":
-                                print(
-                                    f'Здравствуйте, {full_name.title()}. Посылка была отправлена по адресу: {adress.title()}')
-                                break
-                            else:
-                                print('Вы не ввели адресс')
-                        break
-                    break
-            break
-    break
+        continue
+
